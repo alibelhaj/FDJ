@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+{% block title %}Résultat EuroMillions - My Million : Tirage  | FDJ®{% endblock %}
+
+{% block body %}
+    <header>
+    </header>
+
+    <!-- Begin page content -->
+    <main role="main" class="flex-shrink-0">
+        <div class="container">
+            <h1 class="mt-5">Tirage du {{ items.drawn_at|date("l d F", "Europe/Paris") }}</h1>
+            <div class="row align-items-center">
+                <div class="col-8">
+                    {% for item in items.results %}
+                        <span class="btn {{ item.type=='number' ? 'btn-number' :'btn-star-number' }}  btn-circle btn-md align-middle">{{ item.value }}</span>
+                    {% endfor %}
+                </div>
+                <div class="col-4">
+                    <div class="bonus">
+                        <span class="title">My Million</span>
+                        <span class="numbers-bonus_num">BL 534 9058</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer mt-auto py-3">
+        <div class="container">
+            <span class="text-muted">(2a) Montant non garanti (sauf avis contraire publié sur fdj.fr) à partager au rang 1 dans les pays participants. Voir règlement de l'offre de jeux EuroMillions - My Million et du jeu Etoile+.
+(2b) Soit 1 gagnant d'1 M € en République française ou Principauté de Monaco.
+</span>
+        </div>
+    </footer>
+
+{% endblock %}
+
